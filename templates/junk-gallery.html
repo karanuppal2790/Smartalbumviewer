@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+{% for image_name in image_names %}
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Scanned Photos</h1>
+        </div>
+        <hr>
+        {% if image_name.indexOf("000") != -1  %}
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Memes</h1>
+        </div>
+        <hr>
+         {% if image_name.indexOf("1") != -1  %}
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Greetings</h1>
+        </div>
+        <hr>
+        {% if image_name.indexOf("etings") != -1  %}
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Miscellaneous</h1>
+        </div>
+        <hr>
+        {% if image_name.indexOf("etings") != -1  %}
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+        </div>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
