@@ -3,39 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style media="screen" type="text/css">
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 </head>
 <body>
 <div class="container">
-{% for image_name in image_names %}
-    <div class="row">
-
-        <div class="col-lg-12">
-            <h1 class="page-header">Scanned Photos</h1>
-        </div>
-        <hr>
-        {% if image_name.indexOf("000") != -1  %}
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
-        </div>
-        {% endif %}
-
-    </div>
 
     <div class="row">
 
         <div class="col-lg-12">
-            <h1 class="page-header">Memes</h1>
+            <h1 class="page-header">Scanned Documents</h1>
         </div>
         <hr>
-         {% if image_name.indexOf("1") != -1  %}
+        {% for image_name in document_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('get_thumbnail', filename=image_name)}}">
         </div>
-        {% endif %}
-
+        {% endfor %}
     </div>
 
     <div class="row">
@@ -44,12 +31,24 @@
             <h1 class="page-header">Greetings</h1>
         </div>
         <hr>
-        {% if image_name.indexOf("etings") != -1  %}
+        {% for image_name in greetings_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('get_thumbnail', filename=image_name)}}">
         </div>
-        {% endif %}
+        {% endfor %}
+    </div>
 
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Memes and Cartoons</h1>
+        </div>
+        <hr>
+        {% for image_name in memes_images %}
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <img class="img-responsive" src=" {{url_for('get_thumbnail', filename=image_name)}}">
+        </div>
+        {% endfor %}
     </div>
 
     <div class="row">
@@ -58,14 +57,12 @@
             <h1 class="page-header">Miscellaneous</h1>
         </div>
         <hr>
-        {% if image_name.indexOf("etings") != -1  %}
+        {% for image_name in miscellaneous_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('get_thumbnail', filename=image_name)}}">
         </div>
-        {% endif %}
-
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
