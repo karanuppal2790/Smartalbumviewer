@@ -132,13 +132,27 @@ def send_image(filename):
 @app.route("/getphotosgallery", methods=['GET', 'POST'])
 def get_gallery():
 	image_names = os.listdir('./images')
-	print(image_names)
+	#print(image_names)
 	return render_template("gallery.html", image_names=image_names)
 
 @app.route("/gettriagegallery", methods=['GET', 'POST'])
 def get_triage_gallery():
 	image_names = os.listdir('./images')
 	print(image_names)
+	miscellaneous=[]   
+	import json 
+	with open('data.json') as data_file:    
+		data = json.load(data_file)
+
+	for attribute, value in data.iteritems():
+		#str = attribute.split("Dataset/test_images/memes/",1)[1]
+		str=attribute.rsplit('/',1)[1]
+		if value==3:
+			miscellaneous.append(str)    
+ 	image_names = sorted(miscellaneous)
+	with open('output-triage-original.json') as data_file:    
+		data = json.load(data_file)
+  
 	return render_template("triage.html", image_names=image_names)	
 
 @app.route("/getjunkgallery", methods=['GET', 'POST'])
@@ -166,7 +180,7 @@ def get_junk_gallery():
 
 		elif value==3:
 			miscellaneous.append(str)       
-	return render_template("junk-gallery.html", document_images = documents, greetings_images = greetings, miscellaneous_images = miscellaneous, memes_images = memes)
+	return render_template("junk-gallery.html", document_images = documents, greetings_images = greetings, miscellaneous_images = sorted(miscellaneous), memes_images = memes)
 
 # serve static files
 @app.route("/thumbnail/<string:filename>", methods=['GET'])

@@ -18,7 +18,7 @@
         <hr>
         {% for image_name in document_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}" style="width:300px;height:200px;margin:10px;border: 2px solid gray;">
         </div>
         {% endfor %}
     </div>
@@ -31,7 +31,7 @@
         <hr>
         {% for image_name in greetings_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}" style="width:300px;height:200px;margin:10px;border: 2px solid gray;">
         </div>
         {% endfor %}
     </div>
@@ -44,7 +44,7 @@
         <hr>
         {% for image_name in memes_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}" style="width:300px;height:200px;margin:10px;border: 2px solid gray;">
         </div>
         {% endfor %}
     </div>
@@ -57,7 +57,7 @@
         <hr>
         {% for image_name in miscellaneous_images %}
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:300px;height:200px;margin:10px;border: 2px solid gray;">
         </div>
         {% endfor %}
     </div>
