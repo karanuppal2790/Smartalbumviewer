@@ -135,6 +135,12 @@ def get_gallery():
 	print(image_names)
 	return render_template("gallery.html", image_names=image_names)
 
+@app.route("/gettriagegallery", methods=['GET', 'POST'])
+def get_triage_gallery():
+	image_names = os.listdir('./images')
+	print(image_names)
+	return render_template("triage.html", image_names=image_names)	
+
 @app.route("/getjunkgallery", methods=['GET', 'POST'])
 def get_junk_gallery():
 	image_names = os.listdir('./images')
