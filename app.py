@@ -150,13 +150,13 @@ def get_junk_gallery():
 		#str = attribute.split("Dataset/test_images/memes/",1)[1]
 		str=attribute.rsplit('/',1)[1]
 		if value==0:
-			documents.append(str)
-
-		elif value==1:
 			memes.append(str)
 
+		elif value==1:
+			greetings.append(str)
+
 		elif value==2:
-			greetingsa.append(str)
+			documents.append(str)
 
 		elif value==3:
 			miscellaneous.append(str)       
