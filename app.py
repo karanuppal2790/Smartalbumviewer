@@ -139,21 +139,92 @@ def get_gallery():
 def get_triage_gallery():
 	image_names = os.listdir('./images')
 	print(image_names)
-	miscellaneous=[]   
-	import json 
-	with open('data.json') as data_file:    
-		data = json.load(data_file)
+	miscellaneous={}
+	burst1 = [s for s in image_names if "0001-" in s]
+	burst2 = [s for s in image_names if "0002-" in s]
+	burst3 = [s for s in image_names if "0003-" in s]
+	burst4 = [s for s in image_names if "000022-" in s]
+	burst5 = [s for s in image_names if "000040-" in s]
+	burst6 = [s for s in image_names if "000042-" in s]
+	return render_template("triage-gallery.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4)
 
-	for attribute, value in data.iteritems():
-		#str = attribute.split("Dataset/test_images/memes/",1)[1]
-		str=attribute.rsplit('/',1)[1]
-		if value==3:
-			miscellaneous.append(str)    
- 	image_names = sorted(miscellaneous)
+
+@app.route("/gettriagegallery-normal", methods=['GET', 'POST'])
+def get_triage_gallery_normal():
+	import json
+	image_names = os.listdir('./images')
+	print(image_names)
+	burst1 = [s for s in image_names if "0001-" in s]
+	burst2 = [s for s in image_names if "0002-" in s]
+	burst3 = [s for s in image_names if "0003-" in s]
+	burst4 = [s for s in image_names if "000022-" in s]
+	burst5 = [s for s in image_names if "000040-" in s]
+	burst6 = [s for s in image_names if "000042-" in s]
 	with open('output-triage-original.json') as data_file:    
 		data = json.load(data_file)
-  
-	return render_template("triage.html", image_names=image_names)	
+		print data
+ 
+	for attribute, value in data.iteritems():
+		if "0001" in attribute:
+			burst1_best=value.rsplit('/',1)[1]
+
+		if "0002" in attribute:
+			burst2_best=value.rsplit('/',1)[1]
+
+		if "0003" in attribute:
+			burst3_best=value.rsplit('/',1)[1]
+
+		if "000022" in attribute:
+			burst4_best=value.rsplit('/',1)[1]
+
+		if "000040" in attribute:
+			burst5_best=value.rsplit('/',1)[1]
+
+		if "000042" in attribute:
+			burst6_best=value.rsplit('/',1)[1]
+
+		else:
+			print "nothing"
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best)
+
+@app.route("/gettriagegallery-normal", methods=['GET', 'POST'])
+def get_triage_gallery_hueristic():
+	import json
+	image_names = os.listdir('./images')
+	print(image_names)
+	burst1 = [s for s in image_names if "0001-" in s]
+	burst2 = [s for s in image_names if "0002-" in s]
+	burst3 = [s for s in image_names if "0003-" in s]
+	burst4 = [s for s in image_names if "000022-" in s]
+	burst5 = [s for s in image_names if "000040-" in s]
+	burst6 = [s for s in image_names if "000042-" in s]
+	with open('output-triage-heuristic.json') as data_file:    
+		data = json.load(data_file)
+		print data
+ 
+	for attribute, value in data.iteritems():
+		if "0001" in attribute:
+			burst1_best=value.rsplit('/',1)[1]
+
+		if "0002" in attribute:
+			burst2_best=value.rsplit('/',1)[1]
+
+		if "0003" in attribute:
+			burst3_best=value.rsplit('/',1)[1]
+
+		if "000022" in attribute:
+			burst4_best=value.rsplit('/',1)[1]
+
+		if "000040" in attribute:
+			burst5_best=value.rsplit('/',1)[1]
+
+		if "000042" in attribute:
+			burst6_best=value.rsplit('/',1)[1]
+
+		else:
+			print "nothing"
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best)
+
 
 @app.route("/getjunkgallery", methods=['GET', 'POST'])
 def get_junk_gallery():

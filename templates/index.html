@@ -63,6 +63,15 @@
          <form id="upload-form" action="{{ url_for('get_junk_gallery') }}" method="POST" enctype="multipart/form-data">
     <input type="submit" value="Show Junk Images" id="upload-button">
          </form>
+         <form id="upload-form" action="{{ url_for('get_triage_gallery') }}" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Show Triage Images" id="upload-button">
+         </form>
+         <form id="upload-form" action="{{ url_for('get_triage_gallery_normal') }}" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Show Best Images - Triaging" id="upload-button">
+         </form>
+         <form id="upload-form" action="{{ url_for('get_triage_gallery_hueristic') }}" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Show Best Images - Triaging with Herustics" id="upload-button">
+         </form>
         </div>
     </div>
 </div>
