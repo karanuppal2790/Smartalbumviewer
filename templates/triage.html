@@ -139,6 +139,50 @@
      </div> 
      
    {% endfor %}  
+
+ </div> 
+
+ <div id="backcontainer" class="container">
+ <div class="row">
+
+  </div>
+     
+     <div id="highlight" class="box1">
+
+         <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst5_best_image)}}">
+             <p>{{ data_mlb[burst5_best_image] }}</p>
+     </div> 
+
+      {% for image_name in burst5%}
+     
+     <div class="box">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
+             <p>{{ data_mlb[image_name] }}</p>
+     </div> 
+     
+   {% endfor %}  
+
+ </div> 
+
+ <div id="backcontainer" class="container">
+ <div class="row">
+
+  </div>
+     
+     <div id="highlight" class="box1">
+
+         <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst6_best_image)}}">
+             <p>{{ data_mlb[burst6_best_image] }}</p>
+     </div> 
+
+      {% for image_name in burst6 %}
+     
+     <div class="box">
+            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
+             <p>{{ data_mlb[image_name] }}</p>
+     </div> 
+     
+   {% endfor %}  
  </div> 
 
 <script src="http://code.jquery.com/jquery-latest.min.js"

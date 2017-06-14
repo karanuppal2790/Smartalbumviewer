@@ -146,7 +146,7 @@ def get_triage_gallery():
 	burst4 = [s for s in image_names if "000022-" in s]
 	burst5 = [s for s in image_names if "000040-" in s]
 	burst6 = [s for s in image_names if "000042-" in s]
-	return render_template("triage-gallery.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4)
+	return render_template("triage-gallery.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst5=burst5, burst6=burst6)
 
 
 @app.route("/gettriagegallery-normal", methods=['GET', 'POST'])
@@ -189,7 +189,7 @@ def get_triage_gallery_normal():
 
 		else:
 			print "nothing"
-	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, data_mlb=data_mlb)
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst5=burst5, burst6= burst6, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, burst5_best_image=burst5_best, burst6_best_image=burst6_best, data_mlb=data_mlb)
 
 @app.route("/gettriagegallery-hueristic", methods=['GET', 'POST'])
 def get_triage_gallery_hueristic():
@@ -231,7 +231,7 @@ def get_triage_gallery_hueristic():
 
 		else:
 			print "nothing"
-	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, data_mlb=data_mlb)
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst5=burst5, burst6=burst6, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, burst5_best_image=burst5_best, burst6_best_image=burst6_best, data_mlb=data_mlb)
 
 
 @app.route("/getjunkgallery", methods=['GET', 'POST'])
