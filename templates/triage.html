@@ -67,16 +67,16 @@
      
      <div id="highlight" class="box1">
          <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst1_best_image)}}">
-             <p></p>
+         <p>{{ data_mlb[burst1_best_image] }} </p>
+
      </div> 
 
       {% for image_name in burst1 %}
      
      <div class="box">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
-             <p></p>
+             <p>{{ data_mlb[image_name] }} </p>
      </div> 
-     
    {% endfor %}  
  </div>  
 
@@ -87,14 +87,14 @@
      
      <div id="highlight" class="box1">
          <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst2_best_image)}}">
-             <p></p>
+             <p>{{ data_mlb[burst2_best_image] }}</p>
      </div> 
 
       {% for image_name in burst2 %}
      
      <div class="box">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
-             <p></p>
+             <p>{{ data_mlb[image_name] }}</p>
      </div> 
      
    {% endfor %}  
@@ -107,14 +107,14 @@
      
      <div id="highlight" class="box1">
          <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst3_best_image)}}">
-             <p></p>
+             <figcaption>{{ data_mlb[burst3_best_image] }}</figcaption>
      </div> 
 
       {% for image_name in burst3 %}
      
      <div class="box">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
-             <p></p>
+             <p>{{ data_mlb[image_name] }}</p>
      </div> 
      
    {% endfor %}  
@@ -126,15 +126,16 @@
   </div>
      
      <div id="highlight" class="box1">
+
          <img class="img-responsive" height="500" width="500", src="{{url_for('send_image', filename=burst4_best_image)}}">
-             <p></p>
+             <p>{{ data_mlb[burst4_best_image] }}</p>
      </div> 
 
       {% for image_name in burst4 %}
      
      <div class="box">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}"style="width:1500px;height:200px;margin:10px;border: 2px solid gray;">
-             <p></p>
+             <p>{{ data_mlb[image_name] }}</p>
      </div> 
      
    {% endfor %}  

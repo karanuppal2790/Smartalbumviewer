@@ -163,7 +163,11 @@ def get_triage_gallery_normal():
 	with open('output-triage-original.json') as data_file:    
 		data = json.load(data_file)
 		print data
- 
+
+	with open('mlp.json') as data_file:    
+		data_mlb = json.load(data_file)
+		print data_mlb
+
 	for attribute, value in data.iteritems():
 		if "0001" in attribute:
 			burst1_best=value.rsplit('/',1)[1]
@@ -185,9 +189,9 @@ def get_triage_gallery_normal():
 
 		else:
 			print "nothing"
-	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best)
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, data_mlb=data_mlb)
 
-@app.route("/gettriagegallery-normal", methods=['GET', 'POST'])
+@app.route("/gettriagegallery-hueristic", methods=['GET', 'POST'])
 def get_triage_gallery_hueristic():
 	import json
 	image_names = os.listdir('./images')
@@ -201,6 +205,10 @@ def get_triage_gallery_hueristic():
 	with open('output-triage-heuristic.json') as data_file:    
 		data = json.load(data_file)
 		print data
+
+	with open('mlp.json') as data_file:    
+		data_mlb = json.load(data_file)
+		print data_mlb	
  
 	for attribute, value in data.iteritems():
 		if "0001" in attribute:
@@ -223,7 +231,7 @@ def get_triage_gallery_hueristic():
 
 		else:
 			print "nothing"
-	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best)
+	return render_template("triage.html", burst1=burst1, burst2=burst2, burst3=burst3, burst4=burst4, burst1_best_image=burst1_best, burst2_best_image=burst2_best, burst3_best_image=burst3_best, burst4_best_image=burst4_best, data_mlb=data_mlb)
 
 
 @app.route("/getjunkgallery", methods=['GET', 'POST'])
